@@ -1,0 +1,110 @@
+body {
+    display: flex;
+    overflow-x: hidden;
+}
+
+* {
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-2%)
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.form {
+    margin-top: 1%;
+    height: max-content;
+    display: flex;
+    margin-left: 5%;
+    flex-direction: column;
+    justify-content: center;
+    background: #F2F2F7;
+    border-radius: 20px;
+    padding: 1% 4% 1.5% 4%;
+    box-shadow: 5px 5px 2px 1px rgba(20, 20, 23, 0.2);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form label {
+    margin-top: 3%;
+}
+
+.form select,
+option,
+input {
+    outline: none;
+    border: none;
+    height: 35px;
+    border-radius: 5px;
+}
+
+input[type="checkbox"] {
+    height: auto !important;
+}
+
+.form-add {
+    height: max-content;
+    display: flex;
+    margin-left: 5%;
+    flex-direction: column;
+    justify-content: center;
+    background: #F2F2F7;
+    border-radius: 20px;
+    padding: 1%;
+    box-shadow: 5px 5px 2px 1px rgba(20, 20, 23, 0.2);
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 45%;
+    top: 2%;
+}
+
+.form-add select,
+input,
+option {
+    border: none;
+    outline: none;
+}
+
+#buy {
+    position: absolute;
+    width: 15%;
+    height: 2rem;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    top: 36%;
+    font-family: sans-serif, Helvetica;
+    font-weight: bolder;
+    /* right: 0%; */
+    box-shadow: 1px 2px 4px #8fbc8f94;
+    left: calc(62% - 15% / 2);
+    zoom: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+.output-box {
+    position: absolute;
+    top: 2%;
+    height: max-content;
+    width: 20%;
+    box-shadow: 5px 5px 2px 1px rgba(20, 20, 23, 0.2);
+    background: #F2F2F7;
+    padding: 2%;
+    right: -30%;
+    transition: all 0.5s ease-in-out;
+    font-family: sans-serif;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+#buy:hover {
+    transform: scale(1.2);
+    transition: all 0.5s ease-in-out;
+}
