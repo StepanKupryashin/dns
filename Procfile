@@ -1,1 +1,1 @@
-web: gunicorn veridis.wsgi --log-file -
+web: gunicorn dns.wsgi --log-file -
