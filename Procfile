@@ -1,0 +1,1 @@
+web: gunicorn veridis.wsgi --log-file -
