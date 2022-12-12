@@ -1,3 +1,16 @@
+
+setTimeout(function() {
+    $('#preloader').hide();
+
+
+    $('.title-app').css('display', 'flex');
+    $('.form').css('display', 'flex');
+    $('.form-add').css('display', 'flex');
+    $('#buy').css('display', 'block');
+
+}, 3000);
+
+
 // инициализируем списки для упрощения работы с даннымми
 window.checked = {}
 window.components = ['cpu', 'gpu', 'mather',
@@ -53,7 +66,7 @@ $('#buy').click(function(e) {
     }
     document.querySelector("#output-p").innerHTML = `${window.msg_box}`
     $('.output-box').animate({
-        "right": '1%'
+        "right": '24%'
     }, 800)
     $('#get-docx').click(function(e) {
         $('#text-docx').val(window.msg_box)

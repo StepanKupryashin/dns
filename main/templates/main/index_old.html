@@ -1,0 +1,76 @@
+<div class="form">
+    <label for="cpu">Процессор <input type="checkbox" name="cpu-check" id="cpu-check"></label>
+    <select name="cpu" id="cpu">
+        {% for i in cpu %}
+        <option value="{{i.price}} {{i.id}}">{{i.name}}</option>
+        {% endfor %}
+    </select>
+    <label for="gpu">Видеокарта <input type="checkbox" name="gpu-check" id="gpu-check"></label>
+    <select name="gpu" id="gpu">
+        {% for i in   gpu %}
+        <option value="{{i.price}} {{i.id}}">{{i.name}}</option>
+        {% endfor %}
+     </select>
+    <label for="mather">Материнская плата <input type="checkbox" name="mather-check" id="mather-check"></label>
+    <select name="mather" id="mather">
+        {% for i in mather%}
+        <option value="{{i.price}} {{i.id}}">{{i.name}}</option>
+        {% endfor %}
+    </select>
+    <label for="ram">Оперативная память <input type="checkbox" name="ram-check" id="ram-check"></label>
+    <select name="ram" id="ram">
+        {% for i in ram%}
+        <option value="{{ i.price}} {{ i.id}}">{{ i.name }}</option>
+        {% endfor %}
+    </select>
+    <label for="ram-count">Кол-во Оперативной памяти</label>
+    <input type="number" id=ram-count min="1" max="20" value="1">
+    <label for="power-block">Блок питания <input type="checkbox" name="power-block-check" id="power-block-check"cpu-check"></label>
+    <select name="power-block" id="power-block">
+        {% for i in power_block %}
+        <option value="{{i.price}} {{i.id}}">{{ i.name }}</option>
+        {% endfor %}
+    </select>
+    <label for="hdd">Накопитель <input type="checkbox" name="hdd-check" id="hdd-check"></label>
+    <select name="hdd" id="hdd">
+        {% for i in   hdd %}
+        <option value="{{i.price}} {{i.id}}">{{i.name}}</option>
+        {% endfor %}
+    </select>
+    <label for="hdd-count">Кол-во Накопителей</label>
+    <input type="number" id=hdd-count min="1" max="20" value="1" />
+    <label for="dilivery">Доставка <input type="checkbox" name="dilivery-check" id="dilivery-check"></label>
+    <label for="address">Адрес доставки:</label>
+    <input type="text" name="address" id="address" placeholder="Г.Кемерово ул. 50 лет октяьря 15, кв 56">
+</div>
+<div class="form-add">
+    <h1>Перефирия</h1>
+    <label for="mouse">Мышь <input type="checkbox" name="mouse-check" id="mouse-check"></label>
+    <select name="mouse" id="mouse">
+        {% for i in   mouse %}
+        <option value="{{i.price}} {{i.id}}">{{i.name}}</option>
+        {% endfor %}
+    </select>
+    <label for="keyboard">Клавиатура <input type="checkbox" name="keyboard-check" id="keyboard-check"></label>
+    <select name="keyboard" id="keyboard">
+        {% for i in   keyboard %}
+        <option value="{{i.price}} {{i.id}}">{{i.name}}</option>
+        {% endfor %}
+    </select>
+    <label for="keyboard">Монитор <input type="checkbox" name="monitor-check" id="monitor-check"></label>
+    <select name="monitor" id="monitor">
+        {% for i in   monitor %}
+        <option value="{{i.price}} {{i.id}}">{{i.name}}</option>
+        {% endfor %}
+    </select>
+</div>
+<button id="buy">Заказать</button>
+<div class="output-box">
+    <p id="output-p"></p>
+    <button id="get-docx">
+        сделать чек в WORD
+    </button>
+</div>
+<form action="/get-docx" method="post" style="display: none" id="form-download">
+    {% csrf_token %}
+    <textarea name="text-docx" id="text-docx" cols="30" rows="10" value="0"></textarea></form>

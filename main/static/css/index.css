@@ -1,11 +1,25 @@
 body {
     display: flex;
     overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
 }
 
 * {
     animation: fadeIn 1.2s ease-in-out;
+    margin: 0;
+    padding: 0;
 }
+
+
+#preloader {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+}
+
 
 @keyframes fadeIn {
     0% {
@@ -18,18 +32,62 @@ body {
     }
 }
 
+.title-app {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    height: 9vh;
+    /* height: max-content; */
+    display: none;
+    width: 50%;
+    background: linear-gradient(180deg, #00F7A7 0%, #04F5ED 100%);
+    border-radius: 25px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 59px;
+    /* identical to box height */
+
+    text-align: center;
+    letter-spacing: -0.02em;
+
+    color: #FFFFFF;
+    transition: all 0.5s ease-in-out;
+}
+
+.title-app:hover {
+    transform: scale(1.2);
+    transition: all 0.5s ease-in-out;
+}
+
+
 .form {
-    margin-top: 1%;
     height: max-content;
-    display: flex;
-    margin-left: 5%;
+    display: none;
+    width: 32%;
     flex-direction: column;
     justify-content: center;
-    background: #F2F2F7;
-    border-radius: 20px;
-    padding: 1% 4% 1.5% 4%;
-    box-shadow: 5px 5px 2px 1px rgba(20, 20, 23, 0.2);
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 0% 2% 1.5% 2%;
+    /* bottom: 4%; */
+    left: 2%;
+    position: relative;
+    background: linear-gradient(180deg, #04F5ED 0%, #00F7A7 100%);
+    box-shadow: 10px 0px 20px rgb(0 0 0 / 25%), 0px 10px 20px rgb(0 0 0 / 25%);
+    border-radius: 25px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: larger;
+    line-height: 3vh;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
 }
 
 .form label {
@@ -46,22 +104,32 @@ input {
 }
 
 input[type="checkbox"] {
-    height: auto !important;
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 23px;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+
 }
+
+
+
+
 
 .form-add {
     height: max-content;
-    display: flex;
+    display: none;
     margin-left: 5%;
     flex-direction: column;
     justify-content: center;
     background: #F2F2F7;
     border-radius: 20px;
     padding: 1%;
-    box-shadow: 5px 5px 2px 1px rgba(20, 20, 23, 0.2);
+    box-shadow: 5px 5px 2px 1px rgb(20 20 23 / 20%);
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
-    left: 45%;
+    left: 32%;
     top: 2%;
 }
 
@@ -70,12 +138,14 @@ input,
 option {
     border: none;
     outline: none;
+    text-align: center;
 }
 
 #buy {
     position: absolute;
     width: 15%;
     height: 2rem;
+    display: block;
     border-radius: 20px;
     outline: none;
     border: none;
@@ -84,7 +154,7 @@ option {
     font-weight: bolder;
     /* right: 0%; */
     box-shadow: 1px 2px 4px #8fbc8f94;
-    left: calc(62% - 15% / 2);
+    left: calc(46% - 15% / 2);
     zoom: 1;
     transition: all 0.5s ease-in-out;
 }
@@ -93,7 +163,7 @@ option {
     position: absolute;
     top: 2%;
     height: max-content;
-    width: 20%;
+    width: 10%;
     box-shadow: 5px 5px 2px 1px rgba(20, 20, 23, 0.2);
     background: #F2F2F7;
     padding: 2%;
