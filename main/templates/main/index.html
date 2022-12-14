@@ -15,7 +15,8 @@
     <img src="{% static 'images/preloader.png'%}" alt="Прелоадер" id="preloader">
     <!-- новый дизайн -->
     <div class="title-app">
-        Продажа комплектующих
+        <span>Продажа комплектующих</span> 
+        <span>Приветствуем вас, {{request.user.username}}  <a href="/logout">Выйти</a></span>
     </div>
 
 <div class="app">
@@ -63,13 +64,38 @@
         <label for="dilivery">Доставка <input type="checkbox" name="dilivery-check" id="dilivery-check"></label>
         <label for="address">Адрес доставки:</label>
         <input type="text" name="address" id="address" placeholder="Г.Кемерово ул. 50 лет октября 15, кв 56">
+    </div> 
+    <div class="right-side">
+        <div class="sub-components">
+            <div class="sub-components-title">
+                <h1>Перефирия</h1>
+                <input type="checkbox" name="sub-components" id="sub-components">
+            </div>
+        <div class="sub-component-form"></div>
+        </div>
+        <div class="buttons">
+            <button id='buy' >Заказать</button>
+            <!-- <button id='get-docx'>Сделать чек в Word</button> -->
+        </div>
     </div>
 </div>
 
+<div class="modal-buy">
+    <h1>Корзина</h1>
+        <p id="output-p"></p>
+        <button id="get-docx">
+            сделать чек в WORD
+        </button>
+        <span id='close-modal'>Закрыть</span>
+</div>
 
+<form action="/get-docx" method="post" style="display: none" id="form-download">
+    {% csrf_token %}
+    <textarea name="text-docx" id="text-docx" cols="30" rows="10" value="0"></textarea></form>
 
 </body>
 <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
     var csrf_token = '{{ csrf_token }}';
 </script>
 <script src="{% static 'js/index.js' %}?{% now 'U'%}"></script>

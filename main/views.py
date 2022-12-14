@@ -13,14 +13,17 @@ import os
 from django.core.files.storage import default_storage
 from django.conf import settings
 from docx import Document
-
+from io import BytesIO
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 # Переделать нахуй
 
 
-class IndexView(TemplateView):
+class IndexView(LoginRequiredMixin, TemplateView):
     template_name = 'main/index.html'
+    login_url = '/login/'
+    redirect_field_name = 'login'
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data()
         context["title"] = 'Главаня'
@@ -36,6 +39,7 @@ class IndexView(TemplateView):
         return context
 
 
+
 class RegisterView(CreateView):
     form_class = RegisterUserForm
     template_name = 'main/register.html'
@@ -47,18 +51,18 @@ class RegisterView(CreateView):
         return reverse('login')
 
 class LoginUserView(LoginView):
-    form_class = AuthenticationForm
+    form_class = CustomAuthForm
     template_name = 'main/login.html'
     def get_context_data(self, **kwargs):
         context = super(LoginUserView, self).get_context_data()
         context["title"] = 'Авторизация'
         return context
     def get_success_url(self):
-        return reverse('home')
+        return reverse('index')
 
 def logout_user(request):
     logout(request)
-    return redirect('home')
+    return redirect('login')
 
 
 
@@ -78,6 +82,12 @@ def get_docx(request):
         f.getvalue(),
         content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
     )
-    response['Content-Disposition'] = 'attachment; filename= Ваша сборка.docx'
+    response['Content-Disposition'] = 'attachment; filename=Ваша сборка.docx'
     response['Content-Length'] = length
     return response
+
+def get_sub_components(request):
+    mouse = Components.objects.all().filter(type="Мышка")
+    keyboard = Components.objects.all().filter(type="Клавиатура")
+    monitor = Components.objects.all().filter(type="Монитор")
+    return render(request, 'main/sub_components.html', {'mouse': mouse, 'keyboard': keyboard, 'monitor': monitor})

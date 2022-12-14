@@ -5,6 +5,9 @@ body {
     height: 100vh;
     flex-direction: column;
 }
+button {
+    cursor: pointer;
+}
 
 * {
     animation: fadeIn 1.2s ease-in-out;
@@ -12,6 +15,71 @@ body {
     padding: 0;
 }
 
+
+.app {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.right-side {
+    width: 68%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.sub-components {
+    background: linear-gradient(180deg, #04F5ED 0%, #00F7A7 100%);
+    box-shadow: 10px 0px 20px rgb(0 0 0 / 25%), 0px 10px 20px rgb(0 0 0 / 25%);
+    border-radius: 25px;
+    display: flex;
+    width: max-content;
+    height: max-content;
+    padding: 5%;
+    font-style: normal;
+    font-weight: bolder;
+    /* font-size: 40px; */
+    line-height: 47px;
+    font-family: sans-serif;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    align-content: center;
+    align-items: center;
+    color: white;
+    justify-content: space-evenly;
+    flex-direction: column;
+    transition: all 0.6s ease-in-out;
+}
+
+
+.buttons {
+    margin-top: 6vh;
+    width: inherit;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttons button {
+    background: linear-gradient(180deg, #04F5ED 0%, #00F7A7 100%);
+    box-shadow: 10px 0px 20px rgb(0 0 0 / 25%), 0px 10px 20px rgb(0 0 0 / 25%);
+    border-radius: 25px;
+    border: none;
+    color: white;
+    width: 14rem;
+    height: 4rem;
+    font-size: larger;
+    font-family: sans-serif;
+    font-weight: 700;
+    transition: all 0.6s ease-in-out;
+}
+
+.buttons button:hover { 
+    transition: all 0.6s ease-in-out;
+    transform: scale(1.2);
+}
 
 #preloader {
     position: absolute;
@@ -33,10 +101,10 @@ body {
 }
 
 .title-app {
-    margin: auto;
+    margin: 0% auto 2% auto;
     text-align: center;
     position: relative;
-    height: 9vh;
+    height: max-content;
     /* height: max-content; */
     display: none;
     width: 50%;
@@ -45,20 +113,16 @@ body {
     justify-content: center;
     align-content: center;
     align-items: center;
-
-
     font-family: sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 2rem;
     line-height: 59px;
-    /* identical to box height */
-
     text-align: center;
     letter-spacing: -0.02em;
-
     color: #FFFFFF;
     transition: all 0.5s ease-in-out;
+    flex-direction: column;
 }
 
 .title-app:hover {
@@ -141,7 +205,7 @@ option {
     text-align: center;
 }
 
-#buy {
+/* #buy {
     position: absolute;
     width: 15%;
     height: 2rem;
@@ -152,12 +216,12 @@ option {
     top: 36%;
     font-family: sans-serif, Helvetica;
     font-weight: bolder;
-    /* right: 0%; */
+    /* right: 0%; 
     box-shadow: 1px 2px 4px #8fbc8f94;
     left: calc(46% - 15% / 2);
     zoom: 1;
     transition: all 0.5s ease-in-out;
-}
+} */
 
 .output-box {
     position: absolute;
@@ -174,7 +238,97 @@ option {
     border-radius: 20px;
 }
 
-#buy:hover {
+/* #buy:hover {
     transform: scale(1.2);
     transition: all 0.5s ease-in-out;
+} */
+
+.sub-components-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.sub-component-form { 
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-component-form select {
+    background: white;
+    border: none;
+    outline: none;
+    border-radius: 23px;
+}
+
+.modal-buy {
+    z-index: 40;
+    width: 80vw;
+    margin: auto;
+    top: -120%;
+    left: 9%;
+    font-family: sans-serif;
+    color: white;
+    font-weight: 800;
+    display: flex;
+    position: fixed;
+    height: 80vh;
+    background: linear-gradient(180deg, #04F5ED 0%, #00F7A7 100%);
+    box-shadow: 10px 0px 20px rgb(0 0 0 / 25%), 0px 10px 20px rgb(0 0 0 / 25%);
+    border-radius: 25px;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.modal-buy button {
+    background: linear-gradient(180deg, #04F5ED 0%, #00F7A7 100%);
+    box-shadow: 10px 0px 20px rgb(0 0 0 / 25%), 0px 10px 20px rgb(0 0 0 / 25%);
+    border-radius: 25px;
+    border: none;
+    color: white;
+    width: 14rem;
+    height: 4rem;
+    font-size: larger;
+    font-family: sans-serif;
+    font-weight: 700;
+    transition: all 0.6s ease-in-out;
+}
+
+#close-modal {
+    cursor: pointer;
+}
+
+form {
+    color: white;
+    font-family: sans-serif;
+    font-weight: 700;
+    background: linear-gradient(180deg, #04F5ED 0%, #00F7A7 100%);
+    box-shadow: 10px 0px 20px rgb(0 0 0 / 25%), 0px 10px 20px rgb(0 0 0 / 25%);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    width: max-content;
+    padding: 2%;
+    margin: auto;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+form button {
+    background: lightgreen;
+    box-shadow: 10px 0px 20px rgb(0 0 0 / 25%), 0px 10px 20px rgb(0 0 0 / 25%);
+    border-radius: 25px;
+    border: none;
+    color: white;
+    width: 14rem;
+    height: 4rem;
+    font-size: larger;
+    font-family: sans-serif;
+    font-weight: 700;
+    transition: all 0.6s ease-in-out;
 }

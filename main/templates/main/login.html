@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>Авторизация</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <h2>Вход</h2>
+        <div class='form-error'>{{form.non_field_errors}}</div>
+        {% for f in form %}
+        {{f}}
+        <div class="form-error">{{f.errors}}</div>
+        {% endfor %}
+        <button type="submit" >Войти</button>
+        <span>Еще не зарегистрированы? <a href="/register">Зарегистрируйтесь!</a></span>
+    </form>
+</body>
+<script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
+</html>

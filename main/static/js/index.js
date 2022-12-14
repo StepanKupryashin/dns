@@ -7,6 +7,7 @@ setTimeout(function() {
     $('.form').css('display', 'flex');
     $('.form-add').css('display', 'flex');
     $('#buy').css('display', 'block');
+    $('.right-side').css('display', 'flex');
 
 }, 3000);
 
@@ -20,6 +21,9 @@ window.components = ['cpu', 'gpu', 'mather',
 window.names = {
     'dilivery': "Доставка"
 }
+window.sub_components = ['mouse', 'keyboard', 'monitor'];
+
+
 window.price = {}
 $('#buy').click(function(e) {
 
@@ -27,6 +31,7 @@ $('#buy').click(function(e) {
     // получаем чекбоксы:
     // window.checked['cpu'] = $("#cpu-check").is(":checked");
     window.components.forEach(element => {
+        if (window.sub_components.includes(element) && $('#sub-components').is(':checked') == false) return;
         window.checked[element] = $(`#${element}-check`).is(":checked");
     });
     // получаем цены: 
@@ -65,13 +70,35 @@ $('#buy').click(function(e) {
         window.msg_box += `<br> Адрес доставки: ${$('#address').val()}`
     }
     document.querySelector("#output-p").innerHTML = `${window.msg_box}`
-    $('.output-box').animate({
-        "right": '24%'
+    $('.modal-buy').animate({
+        "top": '8%'
     }, 800)
     $('#get-docx').click(function(e) {
         $('#text-docx').val(window.msg_box)
         $('#form-download').submit()
     });
-    // $("#gpu").find(":selected").text()
 
+    $('#close-modal').click(function(){
+        $('.modal-buy').animate({
+            "top": '-120%'
+        }, 800)
+        document.querySelector("#output-p").innerHTML = ``;
+        
+    })
+
+});
+
+$('#sub-components').click(function (e) { 
+    if($('#sub-components').is(':checked')) {
+        
+$.ajax({
+    url: '/get_sub_components',
+    success: function (response) {
+        document.querySelector('.sub-component-form').innerHTML = response;
+    }
+  });
+    } else {
+        document.querySelector('.sub-component-form').innerHTML = '';
+    }
+    
 });

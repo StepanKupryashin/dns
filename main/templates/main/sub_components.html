@@ -1,0 +1,18 @@
+            <label for="mouse">Мышь <input type="checkbox" name="mouse-check" id="mouse-check"></label>
+            <select name="mouse" id="mouse">
+                {% for i in   mouse %}
+                <option value="{{i.price}} {{i.id}}">{{i.name}}</option>
+                {% endfor %}
+            </select>
+            <label for="keyboard">Клавиатура <input type="checkbox" name="keyboard-check" id="keyboard-check"></label>
+            <select name="keyboard" id="keyboard">
+                {% for i in   keyboard %}
+                <option value="{{i.price}} {{i.id}}">{{i.name}}</option>
+                {% endfor %}
+            </select>
+            <label for="keyboard">Монитор <input type="checkbox" name="monitor-check" id="monitor-check"></label>
+            <select name="monitor" id="monitor">
+                {% for i in   monitor %}
+                <option value="{{i.price}} {{i.id}}">{{i.name}}</option>
+                {% endfor %}
+            </select>
